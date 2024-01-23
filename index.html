@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Book Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Salsa&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@100&family=Tangerine:wght@700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome To Yon Book Repository</h1>
+        <div class="logo-header" >
+            <img src="Writer Shah Logo.jpg" alt="logo">
+        </div>
+    </div>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="#home">BOOKS</a>
+            <a href="#information">INFORMATION</a>
+            <a href="#review-form">REVIEWS</a>
+            <a href=""></a>
+        </div>
+        <div class="Social-links">
+            <a href="https://www.instagram.com/iamwriter.shah/">INSTAGRAM</a>
+            <a href="https://twitter.com/Iamwritershah">TWITTER</a>
+        </div>
+    </nav>
+    
+   
+    <div class="book-list" id="home">
+        <div class="book-card">
+            <img src="Kalpgruh - The Scare Story.jpg" alt="Kalpgruh">
+            <h2>Kalpgruh - The Scare Story</h2>
+            <p>Shah Harsh</p>
+            <P class="book-price">₹165</P>
+            <button onclick="addToCart('Kalpgruh',165)">Add To Trove</button>
+            <button><a href="https://drive.google.com/drive/folders/1N3BKDfE1D_MPgKqNYHZGdQOXJd73JPZS?usp=drive_link">More Lore</a></button>
+        </div>
+        <div class="book-card">
+            <img src="Room105.jpg" alt="Girl In Room 105">
+            <h2>Girl In Room 105</h2>
+            <p>Chetan Bhagat</p>
+            <P class="book-price">₹250</P>
+            <button onclick="addToCart('Girl In Room 105', 250)">Add To Trove</button>
+            <button><a href="https://www.chetanbhagat.com/books/the-girl-in-room-105/">More Lore</a></button>
+        </div>
+        <div class="book-card">
+            <img src="The Slient Patient.jpg" alt="The Silent Patient">
+            <h2>The Silent Patient</h2>
+            <p>Alex Michaelides</p>
+            <P class="book-price">₹170</P>
+            <button onclick="addToCart('The Silent Patient', 170)">Add To Trove</button>
+            <button><a href="https://www.alexmichaelides.com/silentpatient">More Lore</a></button>
+        </div>
+    </div>
+    <div class="cart">
+        <h2>Your Cart</h2>
+        <input type="text" class="name-input" id="customer-name" placeholder="Your Name">
+        <ul id="cart-items"></ul>
+        <div class="total-price" id="total-price">Total: ₹0</div>
+        <button onclick="openModal()">Checkout</button>
+        <p class="fancy-message">Happy Reading! 📚</p>
+    </div>
+    <div class="modal" id="checkout-modal">
+        <h2>Order Summary</h2>
+        <div class="bill-container">
+            <div class="bill-header">Your Bill for <span id="customer-name-summary">Guest</span></div>
+            <div id="modal-cart-items" class="bill-items"></div>
+            <div class="bill-total" id="modal-total-price">Total: ₹0</div>
+            <button onclick="makePayment()">Make Payment</button>
+        </div>
+    </div>
+    <div class="overlay-blur" id="modal-overlay"></div>
+    <div class="thank-you-screen" id="thank-you-screen">
+        <div class="thank-you-message">Thank you for shopping with us, <span id="customer-name-thankyou">Guest</span>!</div>
+        <button class="reshop-button" onclick="reshop()">Reshop</button>
+    </div>
+<br>
+    <!-- Review Section -->
+    <div class="review-section">
+        <h2>Leave a Review</h2>
+        <form id="review-form" onsubmit="submitReview(event)">
+            <label for="review-name">Name:</label>
+            <input type="text" id="review-name" name="name" required>
+
+            <label for="review-email">Email:</label>
+            <input type="email" id="review-email" name="email" required>
+
+            <label for="review-comment">Comment:</label>
+            <textarea id="review-comment" name="comment" rows="4" required></textarea>
+
+            <button type="submit">Submit Review</button>
+        </form>
+        <div id="reviews-container">
+            <!-- Display reviews here -->
+        </div>
+    </div>
+    <div class="information">
+        <p>Welcome to My Book Store, your one-stop destination for a world of reading adventures. Explore our diverse collection of books and embark on exciting journeys with every page. Happy Reading!</p>
+        <p>Developed by [Your Name]. For inquiries, contact [Your Email].</p>
+    </div>
+    <div class="social-icons">
+        <a href="[Your LinkedIn Profile]" target="_blank"><img src="linkedin-logo.png" alt="LinkedIn"></a>
+        <a href="[Your Twitter Profile]" target="_blank"><img src="twitter-logo.png" alt="Twitter"></a>
+        <a href="[Your Instagram Profile]" target="_blank"><img src="instagram-logo.png" alt="Instagram"></a>
+        <!-- Add more social media links as needed -->
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
